@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "center">
+	<script src="https://kit.fontawesome.com/b3d2c74844.js" crossorigin="anonymous"></script>
+	<h2>Success...</h2>
+	<form >
+		  Your new URL is: <br>
+		  <input class="output" type="textarea" , size="25" value="{{domain}}/f/{{res}}" id="myInput"> 
+		  
+		  <div class="tooltip">
+				<i  class="far fa-copy" onclick="myFunction()" onmouseout="outFunc()" style="font-size:28px;color:white;">
+				  <span class="tooltiptext" id="myTooltip" style="font-size:10px;">Copy to clipboard</span>
+				</i>
+		  </div>
+
+		  <a href="http://{{domain}}/f/{{res}}" title="open Your long URL" target="blank"> 
+				<i class="fas fa-running" style="font-size:28px;color:white; margin-left:10px"></i>
+		  </a>
+		  <br>
+		  <br> 
+		  <span>Click on the copy icon to copy the short URL or click on the run icon to open your original URL on a new tab</span>
+	</form>
+</div>
+
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  
+  var tooltip = document.getElementById("myTooltip");
+  console.log("hi");
+  tooltip.innerHTML = "Copied";
+}
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+
+</script>
+
+{% endblock content %}

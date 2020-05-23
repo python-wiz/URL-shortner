@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center">
+  <h1>Welcome to URL shortener Project</h1>
+  <div class="input1">
+  <form action="short" >
+    {% csrf_token %}
+    <span>Enter your URL in the example format to shorten it:</span><br>
+    <input class = "large" type="url" placeholder="https://example.com" pattern="https://.*" name="main_url" required>
+    <br>
+    <span id="lft">Enter a short text to link with your URL (optional)</span><br>
+    <input class = "large" type="text" placeholder="eXaMp1  (optional)" name="short">
+    <br>
+    <input class = "large-button" type="submit" value = "Shorten" onclick="check()">
+  </form>
+  </div>
+  <br>
+  <br>
+  <span style="font-size:12px; color:#efefef;" >**go to test1.dipzxy.repl.co/f/(short_text) for visit your links</span>
+  {% if err %}
+  <div class="err">
+  {{err}}
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
